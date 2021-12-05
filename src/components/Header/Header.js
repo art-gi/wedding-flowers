@@ -1,19 +1,11 @@
+import { Link } from 'react-router-dom';
+
 import Search from './Search.js'
 import NavBar from './NavBar.js'
 
-function Header({
-    navigationChangeHandler
-}) {
-        function clickHandler(e) {
-        e.preventDefault();
-        if (e.target.tagName === 'A') {
-            let url = new URL(e.target.href);
-            navigationChangeHandler(url.pathname);
-
-        }
-    };
+function Header() {
     return (
-        <section className="navigation" onClick={clickHandler}>
+        <section className="navigation">
             {/* Top Background Image Wrapper */}
                 <div className="wrapper row0">
                     <div id="topbar" className="hoc clear">
@@ -25,9 +17,9 @@ function Header({
                         </div>
                         <div className="fl_right">
                             <ul className="nospace">
-                                <li><a href="/login" title="Login">Login</a></li>
-                                <li><a href="/register" title="Sign Up">Register</a></li>
-                                <li><a href="/logout" title="Logout">Logout</a></li>
+                                <li><Link to="/login" title="Login">Login</Link></li>
+                                <li><Link to="/register" title="Sign Up">Register</Link></li>
+                                <li><Link to="/logout" title="Logout">Logout</Link></li>
                                 <Search />
                             </ul>
                         </div>
@@ -36,7 +28,7 @@ function Header({
                 <div className="wrapper row1">
                 <header id="header" className="hoc clear">
                     <div id="logo" className="fl_left">
-                        <h1><a href="/home">paper flowers</a></h1>
+                        <h1><Link to="/">paper flowers</Link></h1>
                     </div>
                     <NavBar />
                 </header>
