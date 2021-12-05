@@ -1,13 +1,12 @@
-import Review from './Review.js'
-import Footer from './Footer.js'
+
+import Footer from '../Footer/Footer.js';
 import Baner from './Baner.js';
 
 function Home() {
     return (
         <section>
-        <Baner />
-        <Review />
-        <Footer />
+            <Baner />
+            <Footer />
         </section>
     );
 }

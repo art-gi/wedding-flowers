@@ -1,4 +1,4 @@
-function Reviews() {
+function ReviewCard() {
   return (
     <div className="wrapper bgded" style={{ backgroundImage: 'url(/images/demo/backgrounds/03.png)' }}>
       <section id="testimonials" className="hoc clear">
@@ -24,4 +24,4 @@ function Reviews() {
     </div>
   );
 }
-export default Reviews;
+export default ReviewCard;
