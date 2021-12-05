@@ -1,7 +1,8 @@
 import { useState } from "react";
 
 import './App.css';
-import WrapperNav from './components/Navigation/WrapperNav.js';
+
+import Header from "./components/Header/Header.js";
 import Home from './components/Home.js';
 import Catalog from './components/Products/Caltalog.js'
 import Login from './components/Login.js'
@@ -10,6 +11,7 @@ import NotFound from './components/NotFound.js'
 import Reviews from "./components/Review.js";
 //import Details from './components/Products/Details.js'
 import Stories from "./components/Stories.js";
+
 
 function App() {
 
@@ -33,7 +35,7 @@ function App() {
 
   return (
     <div>
-      <WrapperNav navigationChangeHandler={navigationChangeHandler} />
+      <Header navigationChangeHandler={navigationChangeHandler} />
       <main>
         {routes[page] || <NotFound />}
       </main>

@@ -1,7 +1,7 @@
-import Header from "./Header.js";
-import Search from '../Search.js'
+import Search from './Search.js'
+import NavBar from './NavBar.js'
 
-function WrapperNav({
+function Header({
     navigationChangeHandler
 }) {
         function clickHandler(e) {
@@ -33,8 +33,15 @@ function WrapperNav({
                         </div>
                     </div>
                 </div>
-                <Header></Header>
+                <div className="wrapper row1">
+                <header id="header" className="hoc clear">
+                    <div id="logo" className="fl_left">
+                        <h1><a href="/home">paper flowers</a></h1>
+                    </div>
+                    <NavBar />
+                </header>
+            </div>
         </section>
     );
 }
-export default WrapperNav;
+export default Header;
