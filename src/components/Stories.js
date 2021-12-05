@@ -1,4 +1,4 @@
-function ImageStoriesSection() {
+function Stories() {
     return (
         <section id="introblocks">
             <ul className="nospace group btmspace-80">
@@ -31,4 +31,4 @@ function ImageStoriesSection() {
         </section>
     );
 }
-export default ImageStoriesSection;
+export default Stories;

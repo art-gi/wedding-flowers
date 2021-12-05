@@ -11,7 +11,7 @@ function Reviews() {
                   <h6 className="heading">Emily</h6>
                   <em>Customer Of Our Store On Etsy</em></figcaption>
               </figure>
-            </li>a
+            </li>
             <li>
             <div>
               <a className="btn inverse" href="/reviews">View More</a>

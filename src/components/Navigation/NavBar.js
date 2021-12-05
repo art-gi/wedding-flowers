@@ -10,7 +10,7 @@ function NavBar() {
                     </ul>
                 </li>
                 <li><a className="drop" href="/reviews">Reviews</a></li>
-                <li><a href="/customer stories">Customer Stories</a></li>
+                <li><a href="/stories">Stories</a></li>
             </ul>
         </nav>
     );

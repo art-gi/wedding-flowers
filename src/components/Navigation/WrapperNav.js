@@ -4,11 +4,12 @@ import Search from '../Search.js'
 function WrapperNav({
     navigationChangeHandler
 }) {
-    function clickHandler(e) {
+        function clickHandler(e) {
         e.preventDefault();
         if (e.target.tagName === 'A') {
             let url = new URL(e.target.href);
-            navigationChangeHandler(url.pathname)
+            navigationChangeHandler(url.pathname);
+
         }
     };
     return (
@@ -24,7 +25,6 @@ function WrapperNav({
                         </div>
                         <div className="fl_right">
                             <ul className="nospace">
-                                
                                 <li><a href="/login" title="Login">Login</a></li>
                                 <li><a href="/register" title="Sign Up">Register</a></li>
                                 <li><a href="/logout" title="Logout">Logout</a></li>
