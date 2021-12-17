@@ -1,0 +1,38 @@
+.main {
+    background-size: cover;
+    opacity: 0.85;
+  }
+
+.container {
+    width: max-content;
+    margin: 40px auto;
+    color: rgb(220, 224, 228);
+    font-family: 'Segoe UI', sans-serif;
+    padding: 25px 28px;
+    border-radius: 4px;
+    border: 1px solid #302d2d;
+    animation: popup 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    @keyframes popup {
+      0% {
+        transform: scale(0.2);
+        opacity: 0;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+  }
+  .fields {
+    display: flexbox;
+    margin: auto;
+    width: 50%;
+    height: 50%;
+    size: '22';
+  }
+  .color {
+    color: rgb(30, 46, 62);
+  }
+  .btn {
+    margin-top: 15px;
+  }

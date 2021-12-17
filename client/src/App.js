@@ -10,6 +10,7 @@ import Home from './components/Home/Home.js';
 import Catalog from './components/Products/Products.js'
 import Login from './components/Login/Login.js'
 import Register from './components/Register/Register.js'
+import AddItem from './components/Create/AddItem.js'
 import NotFound from './components/NotFound/NotFound.js'
 //import Reviews from './components/Reviews/Reviews.js';
 //import Details from './components/Products/Details.js'
@@ -26,16 +27,18 @@ function App() {
   function onLogin(userData) {
     return SetUser(userData)
   }
+
   return (
-    <AuthContext.Provider value={true}>
+    <AuthContext.Provider value={{user}}>
       <div>
-        <Header user={user} />
+        <Header user={{user}} />
         <main>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/YourStories" element={<Posts />} />
             <Route path="/login" element={<Login onLogin={onLogin}/>} />
             <Route path="/register" element={<Register />} />
+            <Route path="/add-item" element={<AddItem />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
