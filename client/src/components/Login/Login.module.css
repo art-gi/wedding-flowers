@@ -1,0 +1,42 @@
+.main {
+  background-image: url(https://drive.google.com/file/d/1ZCQ-HL8VOvYIU4agMrv6tlUGzjJXTfhd/view?usp=sharing);
+  background-size: cover;
+  height: 400px;
+  opacity: 0.85;
+}
+.container {
+  background-color: #fff;
+  width: max-content;
+  margin: 80px auto;
+  display: flexbox;
+  font-family: 'Segoe UI', sans-serif;
+  padding: 25px 28px;
+  object-position: center;
+  border-radius: 4px;
+  border: 1px solid #302d2d;
+  animation: popup 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  @keyframes popup {
+    0% {
+      transform: scale(0.2);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+}
+.fields {
+  top: 50px;
+  display: flexbox;
+  margin: auto;
+  width: 50%;
+  height: 50%;
+  size: '22';
+}
+.color {
+  color: rgb(30, 46, 62);
+}
+.btn {
+  margin-top: 15px;
+}
