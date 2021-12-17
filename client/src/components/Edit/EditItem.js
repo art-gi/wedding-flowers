@@ -1,10 +1,10 @@
-import styles from './AddItem.module.css'
+import styles from './EditItem.module.css'
 
-function AddItem() {
+function EditItem() {
   return (
     <section className={styles.container}>
        <div>
-      <h2 >Add New Item</h2>
+      <h2 >Edit Item</h2>
       <form method="POST" className={styles.label}>
         <div>
           <label htmlFor="title">Title</label>
@@ -27,11 +27,11 @@ function AddItem() {
           <input type="text" name="price" placeholder="25.75" size="22" />
         </div>
         <div >
-          <input type="submit" name="submit" value="Add" className={styles.btn} />
+          <input type="submit" name="submit" value="Edit" className={styles.btn} />
         </div>
       </form>
       </div>
     </section>
   );
 }
-export default AddItem;
+export default EditItem;
