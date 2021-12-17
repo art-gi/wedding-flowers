@@ -14,7 +14,6 @@ function request(method, url, data) {
     console.log(user)
     if (user) {
         options.headers += { 'X-Authorization': user.accessToken }
-        console.log(options.headers, options.method, options.body)
     }
     return fetch(url, options)
         .then(res => {
