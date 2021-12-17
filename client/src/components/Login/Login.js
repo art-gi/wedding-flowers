@@ -3,27 +3,27 @@ import { useNavigate } from 'react-router-dom';
 import styles from './Login.module.css';
 import authService from '../../services/authService.js';
 
-
-function Login() {
-  const navigate = useNavigate()                             
+function Login({onLogin}) {
+  const navigate = useNavigate()
 
   function loginHandler(e) {
     e.preventDefault();
-  
+
     let data = new FormData(e.currentTarget);
 
     let email = data.get('email')
     let password = data.get('password');
 
     authService.login(email, password)
-    .then((userData) => {
-      console.log(userData)
-      navigate('/');
-    }).catch((error) => {
-      console.log(error);
-    })
+      .then((userData) => {
+        console.log(userData)
+        onLogin(userData)
+        navigate('/');
+      }).catch((error) => {
+        console.log(error);
+      })
   }
-  
+
   return (
     <section >
       <div className={styles.main} style={{ backgroundImage: 'url(/images/demo/backgrounds/05.png)' }}>

@@ -23,19 +23,18 @@ function App() {
     email: '',
     accessToken: ''
   });
-
   function onLogin(userData) {
-    SetUser(userData)
+    return SetUser(userData)
   }
   return (
     <AuthContext.Provider value={true}>
       <div>
-        <Header name={user.name}/>
+        <Header user={user} />
         <main>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/YourStories" element={<Posts />} />
-            <Route path="/login" element={<Login />} />
+            <Route path="/login" element={<Login onLogin={onLogin}/>} />
             <Route path="/register" element={<Register />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
