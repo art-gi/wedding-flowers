@@ -8,9 +8,10 @@ import './App.css';
 import Header from './components/Header/Header.js';
 import Home from './components/Home/Home.js';
 import Catalog from './components/Products/Products.js'
-import Login from './components/Login/Login.js'
-import Register from './components/Register/Register.js'
-import AddItem from './components/Create/AddItem.js'
+import Login from './components/Auth/Login/Login.js'
+import Register from './components/Auth/Register/Register.js'
+import AddItem from './components/Admin/Create/AddItem.js'
+import EditItem from './components/Admin/Edit/EditItem'
 import NotFound from './components/NotFound/NotFound.js'
 //import Reviews from './components/Reviews/Reviews.js';
 //import Details from './components/Products/Details.js'
@@ -31,7 +32,7 @@ function App() {
   return (
     <AuthContext.Provider value={{user}}>
       <div>
-        <Header user={{user}} />
+        <Header user={user} />
         <main>
           <Routes>
             <Route path="/" element={<Home />} />
@@ -39,6 +40,7 @@ function App() {
             <Route path="/login" element={<Login onLogin={onLogin}/>} />
             <Route path="/register" element={<Register />} />
             <Route path="/add-item" element={<AddItem />} />
+            <Route path="/edit-item" element={<EditItem />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>

@@ -4,7 +4,6 @@ import ContactNavBar from './ContactNavBar.js';
 import Search from './Search.js'
 
 function Header({ user }) {
-    console.log(user)
     let auth = (
         <>
             <li><Link to="/login" title="Login">Login</Link></li>
@@ -16,49 +15,50 @@ function Header({ user }) {
             <li><Link to="/logout" title="Logout">Logout</Link></li>
         </>
     );
-        let allUsers = (
+    let allUsers = (
         <>
             <li className="active"><Link to="/">Home</Link></li>
-            <li className="active"><Link to="/your-stories">YourStories</Link></li>
+            <li><Link to="/your-stories">YourStories</Link></li>
         </>
     );
     let adminUsers = (
         <>
-            <li className="active"><Link to="/add-item">AddItem</Link></li>
+            <li ><Link to="/add-item">Add Item</Link></li>
+            <li ><Link to="/edit-item">Edit Item</Link></li>
 
         </>
     );
     return (
-        <section>
-            {/* Top Background Image Wrapper */}
-            <div className="wrapper row0">
-                <div id="topbar" className="hoc clear">
-                    <ContactNavBar />
-                    <div className="fl_right">
-                        <ul className="nospace">
-                            {user.email
-                                ? logout
-                                : auth
-                            }
-                            <Search />
-                        </ul>
+        <section  >
+                {/* Top Background Image Wrapper */}
+                <div className="wrapper row0">
+                    <div id="topbar" className="hoc clear">
+                        <ContactNavBar />
+                        <div className="fl_right">
+                            <ul className="nospace">
+                                {user.email
+                                    ? logout
+                                    : auth
+                                }
+                                <Search />
+                            </ul>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div className="wrapper row1">
-                <header id="header" className="hoc clear">
-                    <div id="logo" className="fl_left">
-                        <h1><Link to="/">paper flowers</Link></h1>
-                    </div>
-                    <nav id="mainav" className="fl_right">
+                <div className="wrapper row1">
+                    <header id="header" className="hoc clear">
+                        <div id="logo" className="fl_left">
+                            <h1><Link to="/">paper flowers</Link></h1>
+                        </div>
+                        <nav id="mainav" className="fl_right">
+                            {allUsers}
+                            {user.email
+                                ? adminUsers
+                                : ''}
 
-                                {user.email
-                                    ? adminUsers
-                                    : ''}
-                                {allUsers}
-                            </nav>
-                </header>
-            </div>
+                        </nav>
+                    </header>
+                </div>
         </section>
     );
 }

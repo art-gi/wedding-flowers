@@ -1,17 +1,19 @@
 import * as api from './api.js';
 import * as request from './requester.js';
 
-function login(email, password) {
-    return request.post(api.login, { email, password })
+function login(userInfo) {
+
+    return request.post(api.login, userInfo)
         .then(user => {
+            console.log(user)
             setUser(user);
             return user;
         })
 }
-function register(email, password) {
-    return request.post(api.register, { email, password })
+function register(userInfo) {
+    return request.post(api.register, userInfo)
         .then(user => {
-            
+
             return user;
         })
 }

@@ -4,7 +4,7 @@ function EditItem() {
   return (
     <section className={styles.container}>
        <div>
-      <h2 >Edit Item</h2>
+       <h2 >Edit Item</h2>
       <form method="POST" className={styles.label}>
         <div>
           <label htmlFor="title">Title</label>
