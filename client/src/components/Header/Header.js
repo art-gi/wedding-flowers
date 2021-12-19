@@ -18,6 +18,7 @@ function Header({ user }) {
     let allUsers = (
         <>
             <li className="active"><Link to="/">Home</Link></li>
+            <li><Link to="/catalog">Catalog</Link></li>
             <li><Link to="/your-stories">YourStories</Link></li>
         </>
     );

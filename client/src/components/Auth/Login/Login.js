@@ -31,7 +31,7 @@ function Login({ onLogin }) {
 
   return (
     <section >
-      <div className={styles.main} style={{ backgroundImage: 'url(/images/demo/backgrounds/05.png)' }} >
+      <div className={styles.main} style={{ backgroundImage: 'url(https://am3pap003files.storage.live.com/y4mn-iRa468WGL4qUtqIDtcrDssfg8GMAUL1L-lKRgBDIMs4EDrF5M9pThP2hmBTwE1vVM3aE6u9rkFXKIoWp2XoKygpEFW9T7NrOnRvVLPC9s3ABk-eV_cGn7F6ycZJO63PJiSi8KuHrBUOhUaxRM_2CTrsblge_miA40pwcYZyyFZugUnTgU5INV4iEjFzi9q?width=5346&height=3564&cropmode=none)' }} >
         <div className={styles.container} >
 
           <form className={styles.label} method="POST" onSubmit={loginHandler}>

@@ -7,11 +7,11 @@ import { AuthContext } from './context/AuthContext.js';
 import './App.css';
 import Header from './components/Header/Header.js';
 import Home from './components/Home/Home.js';
-import Catalog from './components/Products/Products.js'
 import Login from './components/Auth/Login/Login.js'
 import Register from './components/Auth/Register/Register.js'
 import AddItem from './components/Admin/Create/AddItem.js'
 import EditItem from './components/Admin/Edit/EditItem'
+import Catalog from './components/Shop/Catalog.js'
 import NotFound from './components/NotFound/NotFound.js'
 //import Reviews from './components/Reviews/Reviews.js';
 //import Details from './components/Products/Details.js'
@@ -36,6 +36,7 @@ function App() {
         <main>
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/Catalog" element={<Catalog />} />
             <Route path="/YourStories" element={<Posts />} />
             <Route path="/login" element={<Login onLogin={onLogin}/>} />
             <Route path="/register" element={<Register />} />

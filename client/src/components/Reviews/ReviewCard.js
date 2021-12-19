@@ -1,26 +1,19 @@
 function Reviews() {
     return (
-        <div className="wrapper bgded" style={{backgroundImage: 'url(/images/demo/backgrounds/03.png)'}}>
-      <section id="testimonials" className="hoc clear"> 
-        <div className="one_half overlay">
-          <ul className="nospace">
-            <li>
-              <blockquote>I had an assortment of self-standing roses, peonies, and poppies made for my daughters joint birthday celebration. Geri was so easy to work from beginning to end and was so incredibly talented. I was in a time crunch, so I fretted over the flowers not arriving in time, but Geri tracked the shipment the whole way. When they arrived, everyone was blown away how gorgeous they were. Thank you so much, Geri!!!</blockquote>
-              <figure className="clear"><img className="circle" src="{'/images/demo/60x60.png'}" alt="" />
-                <figcaption>
-                  <h6 className="heading">Emily</h6>
-                  <em>Customer Of Our Store On Etsy</em></figcaption>
-              </figure>
-            </li>
-            <li>
-            <div>
-              <a className="btn inverse" href="/reviews">View More</a>
-              </div>
-            </li>
-          </ul>
+      <li className="one_third first">
+      <article><img src={item.image} alt="" />
+        <ul className="nospace meta group">
+          <li><i className="fas fa-user"></i> <Link to="/About">Admin</Link></li>
+          <li><i className="far fa-clock"></i>
+            <time dateTime="2045-04-06T08:15+00:00">06 Apr 2045</time>
+          </li>
+        </ul>
+        <div className="excerpt">
+          <h3 className="heading">{item.title}</h3>
+          <footer><Link to className="btn" href="index.html">Details</Link></footer>
         </div>
-      </section>
-    </div>
+      </article>
+    </li>
     );
 }
 export default Reviews;
