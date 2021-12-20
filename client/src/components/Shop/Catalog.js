@@ -18,8 +18,8 @@ function Catalog() {
   }, []);
 
   return (
-    <div class="wrapper row2">
-      <div className={styles.main} class="hoc container clear">
+    <div className="wrapper row2">
+      <div className={styles.main} className="hoc container clear">
         <span><h4 className={styles.h4} >If you are a busy woman and if you want to choose your wedding decorations and your wedding flowers and bouquets, you are welcome!</h4></span>
         <Products items={items} />
       </div>

@@ -12,9 +12,9 @@ function ItemDetails() {
     const { itemId } = useParams();
 
     useEffect(() => {
-
         itemService.getOne(itemId)
             .then((data) => {
+                console.log(data)
                 setItem(data)
             })
     }, []);
@@ -28,15 +28,15 @@ function ItemDetails() {
         <div className="bgded overlay" >
             <section className="hoc container clear">
                 <article className={styles.container}>
-                    <h5>Category: {item.category}</h5>
-                    <img className={styles.img} src={item.image} />
-                    <p>Description: {item.description}</p>
+                    <h5>Category: </h5>
+                    <img className={styles.img} src="" />
+                    <p>Description: </p>
                     <ul>
                         <div >
-                            {user
+                            {/* {user._id === item._ownerId
                                 ? ownerButton
                                 : ''
-                            }
+                            } */}
                         </div>
                     </ul>
                 </article>

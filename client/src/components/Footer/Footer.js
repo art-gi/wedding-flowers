@@ -15,36 +15,6 @@ function Footer() {
                 </fieldset>
               </form>
             </div>
-            <div className="one_quarter">
-              <h6 className="heading">Auctor tellus diam</h6>
-              <ul className="nospace linklist">
-                <li>
-                  <article>
-                    <p className="nospace btmspace-10"><a href="/">Mauris nam odio dui vestibulum a molestie ac pulvinar a tellus donec nisi dui.</a></p>
-                    <time className="block font-xs" dateTime="2045-04-06">Friday, 6<sup>th</sup> April 2045</time>
-                  </article>
-                </li>
-              </ul>
-            </div>
-            <div className="one_quarter">
-              <h6 className="heading">Laoreet non sodales</h6>
-              <ul className="nospace linklist">
-                <li><a href="/">Amet blandit non quam quisque</a></li>
-                <li><a href="/">Cursus faucibus nulla in mauris</a></li>
-                <li><a href="/">Libero interdum quis molestie</a></li>
-              </ul>
-            </div>
-            <div className="one_quarter">
-              <h6 className="heading">Aliquam mollis tortor</h6>
-              <ul className="nospace clear latestimg">
-                <li><a className="imgover" href="/"><img src={'/images/demo/100x100.png'} alt="" /></a></li>
-                <li><a className="imgover" href="/"><img src={'/images/demo/100x100.png'} alt="" /></a></li>
-                <li><a className="imgover" href="/"><img src={'/images/demo/100x100.png'} alt="" /></a></li>
-                <li><a className="imgover" href="/"><img src={'/images/demo/100x100.png'} alt="" /></a></li>
-                <li><a className="imgover" href="/"><img src={'/images/demo/100x100.png'} alt="" /></a></li>
-                <li><a className="imgover" href="/"><img src={'/images/demo/100x100.png'} alt="" /></a></li>
-                </ul>
-            </div>
 
           </div>
           <div className="center btmspace-50">

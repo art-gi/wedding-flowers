@@ -1,9 +1,13 @@
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 
+import { AuthContext } from '../../context/AuthContext.js';
 import ContactNavBar from './ContactNavBar.js';
 import Search from './Search.js'
 
-function Header({ user }) {
+function Header() {
+    const {user} = useContext(AuthContext);
+    
     let auth = (
         <>
             <li><Link to="/login" title="Login">Login</Link></li>
@@ -37,7 +41,7 @@ function Header({ user }) {
                         <ContactNavBar />
                         <div className="fl_right">
                             <ul className="nospace">
-                                {user.email
+                                {user?.email
                                     ? logout
                                     : auth
                                 }
@@ -53,7 +57,7 @@ function Header({ user }) {
                         </div>
                         <nav id="mainav" className="fl_right">
                             {allUsers}
-                            {user.email
+                            {user?.email
                                 ? adminUsers
                                 : ''}
 

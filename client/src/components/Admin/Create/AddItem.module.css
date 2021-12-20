@@ -27,7 +27,19 @@ input {
   margin-bottom: 20px;
   padding: 10px;
   padding-left: auto;
-  height: 40px;
+  size: 24;
+  font-size: 14px;
+  border-radius: 30px;
+  box-shadow: inset 6px 6px 6px #cbced1, inset -6px -6px 6px white;
+}
+textarea {
+  background: #ecf0f3;
+  color: #4c4d4d;
+  margin-bottom: 20px;
+  padding: 10px;
+  padding-left: auto;
+  height: 120px;
+  width: 190px;
   font-size: 14px;
   border-radius: 30px;
   box-shadow: inset 6px 6px 6px #cbced1, inset -6px -6px 6px white;

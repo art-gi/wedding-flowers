@@ -4,15 +4,25 @@ function getAll() {
     return request.get(api.items);
 }
 
-function create({ title, description, type, image, price }) {
-    return request.post(api.items, { title, description, type, image, price })
-        .then((data) => {
-            console.log(data)
-            return data;
+function create(itemData, token) {
+    return request.post(api.items, itemData, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-Authorization': token
+        },
+        body: JSON.stringify({ ...itemData })
+    })
+        .then((res) => {
+            console.log(res)
+            res.json();
+        })
+        .catch((error) => {
+            console.log(error);
         });
-}
+};
 function getOne(itemId) {
-    return request.get(api.items +`/${itemId}`);
+    return request.get(api.items + `/${itemId}`);
 }
 export default {
     create,
