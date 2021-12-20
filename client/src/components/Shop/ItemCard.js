@@ -7,13 +7,16 @@ function ItemCard({ item }) {
   return (
     <div className={styles.div}>
       <figure><img src={item.image} alt="" />
-        <figcaption><strong><h3 className="heading">{item.title}</h3> </strong></figcaption>
-      <span>Price: $ {price}</span>
-      <div className={styles.buttons}>
-        <Link to="/details"> <input className={styles.btnDetails} type="button" value="Details" /></Link>
-        <Link to="/my-products"> <input className={styles.btnGet} type="button" value="Get It" /></Link>
-        <Link to="/create-review"> <input className={styles.btnReview} type="button" value="Create Review" /></Link>
-      </div>
+        <figcaption>
+          <h3 className="heading">{item.title}</h3>
+          <p>Price: $ {price}</p>
+        </figcaption>
+
+        <div className={styles.buttons}>
+          <div><Link to="" className=" btn inverse" > Get it now </Link></div>
+          <Link to={`/details/${item._id}`} className="btn inverse" className={styles.btnDetails} > DETAILS </Link>
+          <Link to="" className="btn inverse" className={styles.btnReview} > / Write a review /</Link>
+        </div>
       </figure>
     </div>
   )

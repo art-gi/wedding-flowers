@@ -1,5 +1,5 @@
-import authService from "./authService.js";
 function request(method, url, data) {
+    console.log(url)
     let options = {
         method
     }
@@ -7,8 +7,9 @@ function request(method, url, data) {
         options.headers = {
             'Content-Type': 'application/json',
         }
+        console.log(data)
         options.body = JSON.stringify({...data})
-       
+       console.log(options)
     }
     return fetch(url, options)
         .then(res => {

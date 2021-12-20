@@ -14,7 +14,7 @@ import EditItem from './components/Admin/Edit/EditItem'
 import Catalog from './components/Shop/Catalog.js'
 import NotFound from './components/NotFound/NotFound.js'
 //import Reviews from './components/Reviews/Reviews.js';
-//import Details from './components/Products/Details.js'
+import Details from './components/Shop/Details/ItemDetails.js'
 import Posts from './components/PostsCatalog/Posts.js';
 //import Footer from './components/Footer/Footer.js';
 
@@ -42,6 +42,7 @@ function App() {
             <Route path="/register" element={<Register />} />
             <Route path="/add-item" element={<AddItem />} />
             <Route path="/edit-item" element={<EditItem />} />
+            <Route path="/details/:itemId" element={<Details />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>

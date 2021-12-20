@@ -1,0 +1,13 @@
+.container {
+  position: relative;
+  max-inline-size: 500px;
+  margin-left: 30%;
+}
+.img {
+  max-width: 360px;
+  float:inline-start;
+  padding-left: 20px;
+  
+
+}
+

@@ -1,5 +1,6 @@
-export let baseUrl = 'http://localhost:3030'
-export let login = `${baseUrl}/users/login`
-export let register = `${baseUrl}/users/register`
-export let logout = `${baseUrl}/users/logout`
-export let item = `${baseUrl}/jsonstore/items`
+export const baseUrl = 'http://localhost:3030';
+export const login = `${baseUrl}/users/login`;
+export const register = `${baseUrl}/users/register`;
+export const logout = `${baseUrl}/users/logout`;
+export const items = `${baseUrl}/jsonstore/items`;
+

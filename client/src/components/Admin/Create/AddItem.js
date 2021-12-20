@@ -46,7 +46,7 @@ function AddItem() {
         </div>
         <div >
           <label htmlFor="type">Type</label>
-          <input type="text" name="type" placeholder="paper flowers" size="22" />
+          <input type="text" name="category" placeholder="paper flowers" size="22" />
         </div>
         <div >
           <label htmlFor="imageUrl">Image Url</label>
