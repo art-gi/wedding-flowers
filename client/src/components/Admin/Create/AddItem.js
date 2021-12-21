@@ -14,13 +14,12 @@ function AddItem() {
     let data = new FormData(e.currentTarget);
     let title = data.get('title');
     let description = data.get('description');
-    let category = data.get('category');
+    let quantity = data.get('quantity');
     let image = data.get('image');
     let price = data.get('price');
     
-    price = Number(price);
 
-    let itemData = {title, description, category, image, price}
+    let itemData = {title, description, quantity, image, price}
     
     itemService.create(itemData, user.accessToken)
     .then((data) => {
@@ -44,8 +43,8 @@ function AddItem() {
           <textarea name="description" placeholder="Colors: red and white, Size: ..."  />
         </div>
         <div >
-          <label htmlFor="category">Category</label>
-          <input type="text" name="category" placeholder="paper flowers" />
+          <label htmlFor="quantity">quantity</label>
+          <input type="text" name="quantity" placeholder="1" />
         </div>
         <div >
           <label htmlFor="imageUrl">Image Url</label>

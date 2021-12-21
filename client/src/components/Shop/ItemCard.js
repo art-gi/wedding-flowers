@@ -1,9 +1,18 @@
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 
+import { AuthContext } from '../../context/AuthContext.js';
 import styles from './ItemCard.module.css'
 
 function ItemCard({ item }) {
   const price = Number(item.price).toFixed(2);
+  const {user, productsItem} = useContext(AuthContext);
+
+  function productHandler() {
+    console.log(productsItem(item._id));
+    
+  }
+  
   return (
     <div className={styles.div}>
       <figure><img src={item.image} alt="" />
@@ -13,9 +22,9 @@ function ItemCard({ item }) {
         </figcaption>
 
         <div className={styles.buttons}>
-          <div><Link to="" className=" btn inverse" > Get it now </Link></div>
+          <div><Link to="#" className=" btn inverse" onClick={productHandler} > Get it now </Link></div>
           <Link to={`/details/${item._id}`} className="btn inverse" className={styles.btnDetails} > DETAILS </Link>
-          <Link to="" className="btn inverse" className={styles.btnReview} > / Write a review /</Link>
+          <Link to="#" className="btn inverse" className={styles.btnReview} > / Write a review /</Link>
         </div>
       </figure>
     </div>

@@ -38,9 +38,9 @@ function ItemDetails() {
         <div className="bgded overlay" >
             <section className="hoc container clear">
                 <article className={styles.container}>
-                    <h5>Category: {item.category} </h5>
                     <img className={styles.img} src={item.image} />
                     <p>Description: {item.description}</p>
+                    <h7>Quantity: {item.quantity} </h7>
                     <ul>
                         <div >
                             {user._id === item._ownerId

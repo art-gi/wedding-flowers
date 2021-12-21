@@ -2,12 +2,10 @@ import ItemCard from './ItemCard.js';
 import styles from './Products.module.css'
 
 function Products({ items }) {
-
-    const showHeader = (
-        <h3 className={styles.header} >This shop is on short break.</h3>
-    )
-
-    console.log(items)
+    
+const showHeader = (
+<h3 className={styles.header} >This shop is on short break.</h3>
+)
 
     return (
         <ul className="nospace group team" >

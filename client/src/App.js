@@ -16,25 +16,34 @@ import Catalog from './components/Shop/Catalog.js'
 import NotFound from './components/NotFound/NotFound.js'
 import Details from './components/Shop/Details/ItemDetails.js'
 import Posts from './components/PostsCatalog/Posts.js';
-//import Footer from './components/Footer/Footer.js';
+import MyOrders from './components/PrivatePages/MyOrders.js';
 
 const initalState = {
   _id: '',
   name: '',
   email: '',
-  accessToken: ''
-}
+  accessToken: '',
+};
+const orders = [];
 function App() {
   const [user, setUser] = useState(initalState);
+  const [productsId, setProductsId] = useState(orders);
   function login(userData) {
-    return setUser(userData)
-  }
+    return setUser(userData);
+  }; 
+  const productsItem = (itemId) => {
+    setProductsId((oldState) => [...oldState, itemId]);
+    console.log(productsId)
+  };
+  console.log(user)
   const logout = () => {
     setUser(initalState);
-};
+    setProductsId([]);
 
+  };
+  console.log(user)
   return (
-    <AuthContext.Provider value={{user, login, logout}}>
+    <AuthContext.Provider value={{ user, login, logout, productsItem, productsId }}>
       <div>
         <Header />
         <main>
@@ -48,6 +57,7 @@ function App() {
             <Route path="/add-item" element={<AddItem />} />
             <Route path="/edit/itemId" element={<EditItem />} />
             <Route path="/details/:itemId" element={<Details />} />
+            <Route path="/my-orders" element={<MyOrders />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>

@@ -14,6 +14,11 @@ function Header() {
             <li><Link to="/register" title="Sign Up">Register</Link></li>
         </>
     );
+    let userPage = (
+        <>
+            <li><Link to="/my-orders" title="My Orders ">My Orders</Link></li>
+        </>
+    );
     let logout = (
         <>
             <li><Link to="/logout" title="Logout">Logout</Link></li>
@@ -57,8 +62,9 @@ function Header() {
                         </div>
                         <nav id="mainav" className="fl_right">
                             {allUsers}
+                            
                             {user?.email
-                                ? adminUsers
+                                ? (adminUsers, userPage)
                                 : ''}
 
                         </nav>
