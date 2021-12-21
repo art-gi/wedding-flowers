@@ -8,7 +8,7 @@ function request(method, url, data) {
             'Content-Type': 'application/json',
         }
         console.log(data)
-        options.body = JSON.stringify({ ...data })
+        options.body = JSON.stringify({...data})
         console.log(options)
     }
     return fetch(url, options)

@@ -23,9 +23,7 @@ function Register() {
 
     authService.register(email, password)
       .then((userData) => {
-        authService.login(userData);
-        console.log(userData)
-        login(userData);
+       login(userData);
         navigate('/');
       }).catch((error) => {
         console.log(error);

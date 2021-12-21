@@ -6,7 +6,7 @@ import itemService from '../../../services/itemService.js';
 import { AuthContext } from '../../../context/AuthContext.js';
 
 function AddItem() {
-  const navigate = (useNavigate())
+  const navigate = useNavigate()
   const {user} = useContext(AuthContext);
   function createHandler(e) {
     e.preventDefault();
@@ -25,7 +25,7 @@ function AddItem() {
     itemService.create(itemData, user.accessToken)
     .then((data) => {
       console.log(data)
-      navigate('/');
+      navigate('/catalog ');
     }).catch((error) => {
       console.log(error);
     })

@@ -18,13 +18,13 @@ import Details from './components/Shop/Details/ItemDetails.js'
 import Posts from './components/PostsCatalog/Posts.js';
 //import Footer from './components/Footer/Footer.js';
 
+const initalState = {
+  _id: '',
+  name: '',
+  email: '',
+  accessToken: ''
+}
 function App() {
-  const initalState = {
-      _id: '',
-      name: '',
-      email: '',
-      accessToken: ''
-  }
   const [user, setUser] = useState(initalState);
   function login(userData) {
     return setUser(userData)
@@ -46,7 +46,7 @@ function App() {
             <Route path="/register" element={<Register />} />
             <Route path="/logout" element={<Logout />} />
             <Route path="/add-item" element={<AddItem />} />
-            <Route path="/edit-item" element={<EditItem />} />
+            <Route path="/edit/itemId" element={<EditItem />} />
             <Route path="/details/:itemId" element={<Details />} />
             <Route path="*" element={<NotFound />} />
           </Routes>

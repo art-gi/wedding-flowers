@@ -2,15 +2,12 @@ import ItemCard from './ItemCard.js';
 import styles from './Products.module.css'
 
 function Products({ items }) {
-    
-    let timeout;
-    function setTime() {
-        timeout = setTimeout(showHeader, 1000);
-    }
-    function showHeader() {
-       return `<h3 className={styles.header} >This shop is on short break.</h3>`;
-    }
-        console.log(items)
+
+    const showHeader = (
+        <h3 className={styles.header} >This shop is on short break.</h3>
+    )
+
+    console.log(items)
 
     return (
         <ul className="nospace group team" >
@@ -21,7 +18,7 @@ function Products({ items }) {
                             {items.map(x => <ItemCard key={x._id} item={x} />)}
                         </ul>
                     )
-                    : setTime()
+                    : showHeader
                 }
             </li>
         </ul>
