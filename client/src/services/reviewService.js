@@ -19,7 +19,7 @@ export function createReview(data, token) {
         console.log(error)
     });
 };
-function edit(id, data) {
+export function editReview(id, data) {
     console.log(id)
     return fetch(api.reviews + `/${id}`, {
         method: 'PUT',
@@ -34,6 +34,9 @@ function edit(id, data) {
         console.log(error)
     });
 };
+export function getOneReview(id) {
+    return request.get(api.reviews + `/${id}`);
+}
 
 function remove(id, token) {
     return fetch(api.items + `/${id}`, {
