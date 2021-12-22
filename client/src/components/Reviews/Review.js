@@ -4,8 +4,8 @@ function Review({ info }) {
         <div className="one_half overlay">
           <ul className="nospace">
             <li>
-              <p>{info.review}</p>
-              <h6 className="heading">{info.name}</h6>
+              <p></p>
+              <h6 className="heading"></h6>
             </li>
             <li>
               <div>

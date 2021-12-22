@@ -37,9 +37,23 @@ function edit(id, data) {
 function getOne(id) {
     return request.get(api.items + `/${id}`);
 }
+function remove(id, token) {
+    return fetch(api.items + `/${id}`, {
+        method: 'DELETE',
+        headers: {
+            'X-Authorization': token,
+        }
+    }).then((res) => {
+        return res.json();
+    }).catch((error) => {
+        console.log(error)
+    }); 
+}
+
 export default {
     create,
     getAll,
     getOne,
+    remove,
     edit
 }

@@ -32,7 +32,7 @@ function AddItem() {
   return (
     <section className={styles.container}>
        <div>
-      <h2 >Add New Item</h2>
+      <h2 >Add New Listing</h2>
       <form className={styles.label} method="POST" onSubmit={createHandler}>
         <div>
           <label htmlFor="title">Title</label>

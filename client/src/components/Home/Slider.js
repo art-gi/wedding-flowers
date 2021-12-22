@@ -1,4 +1,6 @@
 
+import { Link} from 'react-router-dom';
+
 function Slider() {
     return (
         <div className="bgded overlay" style={{ backgroundImage: 'url(https://am3pap003files.storage.live.com/y4mxhkYnArqd_BB1YrzHlRhT-Pyvs1oJlYXzYktYS8zo-cejoeqsCzdFph_htHUhqrGt4tb8ePwzqM-Ml65Y1DOCkqWcTCkMDRmh0Ff9RiHjN0MrJxImpG8up2i6TAIgeAjb7tUHeiwZV2YyIkKS502BHEJjuDYithRJp1cjzHBrCuzKOgsy-SdoN8KR-Uv1Szh?width=945&height=756&cropmode=none)' }}>
@@ -8,8 +10,8 @@ function Slider() {
                     <h3 className="heading">Weddings & Events</h3>
                     <div>
                         <ul className="nospace inline pushright">
-                            <li><a className="btn" href="/catalog">Shop</a></li>
-                            <li><a className="btn inverse" href="index.html">Share Your Story</a></li>
+                            <li><Link className="btn" to="/catalog">Shop</Link></li>
+                            <li><Link className="btn inverse" to="/add-item">Add a listing</Link></li>
                         </ul>
                     </div>
                 </article>

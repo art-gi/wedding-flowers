@@ -15,8 +15,10 @@ import EditItem from './components/Admin/Edit/EditItem'
 import Catalog from './components/Shop/Catalog.js'
 import NotFound from './components/NotFound/NotFound.js'
 import Details from './components/Shop/Details/ItemDetails.js'
-import Posts from './components/PostsCatalog/Posts.js';
+import Review from './components/Reviews/Review.js';
+import AddReview from './components/Reviews/AddReview.js';
 import MyOrders from './components/PrivatePages/MyOrders.js';
+import Footer from './components/Footer/Footer.js';
 
 const initalState = {
   _id: '',
@@ -24,24 +26,27 @@ const initalState = {
   email: '',
   accessToken: '',
 };
-const orders = [];
+
 function App() {
   const [user, setUser] = useState(initalState);
-  const [productsId, setProductsId] = useState(orders);
+  const [productsId, setProductsId] = useState([]);
+
   function login(userData) {
     return setUser(userData);
-  }; 
+  };
+
   const productsItem = (itemId) => {
     setProductsId((oldState) => [...oldState, itemId]);
-    console.log(productsId)
+
   };
-  console.log(user)
+  console.log(productsId)
+
   const logout = () => {
     setUser(initalState);
     setProductsId([]);
 
   };
-  console.log(user)
+
   return (
     <AuthContext.Provider value={{ user, login, logout, productsItem, productsId }}>
       <div>
@@ -50,17 +55,19 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/Catalog" element={<Catalog />} />
-            <Route path="/YourStories" element={<Posts />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/logout" element={<Logout />} />
             <Route path="/add-item" element={<AddItem />} />
             <Route path="/edit/itemId" element={<EditItem />} />
             <Route path="/details/:itemId" element={<Details />} />
+            <Route path="/add-review/:itemId" element={<AddReview />} />
+            <Route path="/review" element={<Review />} />
             <Route path="/my-orders" element={<MyOrders />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
+        <Footer />
       </div>
     </AuthContext.Provider>
   );

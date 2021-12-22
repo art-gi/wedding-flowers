@@ -5,13 +5,16 @@ import { Link } from 'react-router-dom'
 import styles from './ItemDetails.module.css';
 import { AuthContext } from '../../../context/AuthContext.js';
 import itemService from '../../../services/itemService.js';
-import { items } from '../../../services/api.js';
+import Reviews from './../../Reviews/Reviews.js';
 
 function ItemDetails() {
     const navigate = useNavigate();
-    const { user } = useContext(AuthContext);
+    const { user, productsId, productsItem } = useContext(AuthContext);
     const [item, setItem] = useState({});
     const { itemId } = useParams();
+    console.log(itemId)
+    console.log(item)
+    console.log(user)
 
     useEffect(() => {
         itemService.getOne(itemId)
@@ -19,21 +22,34 @@ function ItemDetails() {
                 console.log(data)
                 setItem(data)
             })
-    }, [itemId]);
+    }, []);
 
-    function removeHandler(id) {
-        itemService.remove(id, user.accessToken)
-        .then(() => {
-            navigate('/catalog')
-        })
+    function productHandler() {
+        console.log(productsItem(item._id));
+
     }
 
-    const ownerButton = (
+    function removeHandler(e) {
+        e.preventDefault();
+        console.log(itemId)
+        itemService.remove(itemId, user.accessToken)
+            .then(() => {
+                navigate('/catalog')
+            })
+    }
+
+    const ownerBtn = (
         <>
             <Link className="btn inverse" to="/edit/itemId" >Edit</Link>
-            <a className="btn inverse" href="#" onClick={removeHandler} >Delete</a>
+            <Link className="btn inverse" to="#" onClick={removeHandler} >Delete</Link>
+            <Link to={`/add-review/${item._id}`} className="btn inverse" className={styles.btnReview} > / Write a review /</Link>
         </>
+
     )
+    const userBtn = (
+        <div><Link to="#" className=" btn inverse" onClick={productHandler} > Get it now </Link></div>
+    )
+    console.log(itemId)
     return (
         <div className="bgded overlay" >
             <section className="hoc container clear">
@@ -43,8 +59,8 @@ function ItemDetails() {
                     <h7>Quantity: {item.quantity} </h7>
                     <ul>
                         <div >
-                            {user._id === item._ownerId
-                                ? ownerButton
+                            {item?._ownerId === user._id
+                                ? ownerBtn
                                 : ''
                             }
                         </div>
@@ -55,23 +71,6 @@ function ItemDetails() {
     );
 }
 export default ItemDetails;
-/* <li>
-                        <figure className="clear"> <img src={item.image} alt="" />
-                            <figcaption>
-                                <h3 className="heading">Category: {item.category}</h3>
-                            </figcaption>
-                        </figure>
-                    </li>
-                    <li><p>Description: {item.description}</p></li>
-                    <li>
-                        <div >
-                            {user
-                                ? ownerButton
-                                : ''
-                            }
-                        </div>
-                    </li>
-                </ul>
-            </div> */
+
 
 

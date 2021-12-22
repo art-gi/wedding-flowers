@@ -25,10 +25,6 @@
   cursor: pointer;
   box-shadow: 1px 1px 1px #cbced1, -1px -1px 1px white;
 }
-.btnReview {
-  color:darkgray;
-  cursor: pointer;
-}
 .btnDetails {
   color:darkcyan;
   cursor: pointer;

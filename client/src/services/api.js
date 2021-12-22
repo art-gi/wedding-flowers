@@ -3,5 +3,6 @@ export const login = `${baseUrl}/users/login`;
 export const register = `${baseUrl}/users/register`;
 export const logout = `${baseUrl}/users/logout`;
 export const items = `${baseUrl}/data/items`;
+export const reviews = `${baseUrl}/data/reviews`
 
 

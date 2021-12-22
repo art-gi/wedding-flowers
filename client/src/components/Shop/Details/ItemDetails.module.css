@@ -7,7 +7,13 @@
   max-width: 360px;
   float:inline-start;
   padding-left: 20px;
-  
 
+}
+.btnReview {
+  position: relative;
+  cursor: pointer;
+  font-size: 22px;
+  font-style: italic;
+ 
 }
 
