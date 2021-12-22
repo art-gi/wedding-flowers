@@ -1,11 +1,11 @@
 import * as api from './api.js';
 import * as request from './requester.js';
-function getAll() {
-    return request.get(api.reviews);
+ export function getAllReviews() {
+    return request.get('http://localhost:3030/jsonstore/reviews');
 }
 
-function create(data, token) {
-    return fetch(api.reviews, {
+export function createReview(data, token) {
+    return fetch('http://localhost:3030/jsonstore/reviews', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -14,7 +14,6 @@ function create(data, token) {
         body: JSON.stringify({ ...data })
 
     }).then((res) => {
-        console.log
         return res.json();
     }).catch((error) => {
         console.log(error)
@@ -35,9 +34,7 @@ function edit(id, data) {
         console.log(error)
     });
 };
-function getOne(id) {
-    return request.get(api.reviews + `/${id}`);
-}
+
 function remove(id, token) {
     return fetch(api.items + `/${id}`, {
         method: 'DELETE',
@@ -51,10 +48,3 @@ function remove(id, token) {
     }); 
 }
 
-export default {
-    create,
-    getAll,
-    getOne,
-    remove,
-    edit
-}

@@ -40,7 +40,7 @@ function ItemDetails() {
 
     const ownerBtn = (
         <>
-            <Link className="btn inverse" to="/edit/itemId" >Edit</Link>
+            <Link className="btn inverse" to={`/edit/${item._id}`} >Edit</Link>
             <Link className="btn inverse" to="#" onClick={removeHandler} >Delete</Link>
             <Link to={`/add-review/${item._id}`} className="btn inverse" className={styles.btnReview} > / Write a review /</Link>
         </>

@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 
 import reviewService from '../../services/itemService.js';
+import { createReview } from '../../services/reviewService.js';
 import { AuthContext } from '../../context/AuthContext.js';
 import styles from './AddReview.module.css'
 import { useNavigate, useParams } from 'react-router-dom';
@@ -21,13 +22,13 @@ function AddReview() {
         const reviewData = {
             name,
             email,
-            review,
-            itemId
+            review
+    
         };
-        reviewService.create(reviewData, user.accessToken)
+        createReview(reviewData, user.accessToken)
             .then((data) => {
-                console.log(data, user.accessToken)
-                navigate('/details/itemId');
+                console.log(data)
+                navigate('/reviews');
             }).catch((error) => {
                 console.log(error);
             })

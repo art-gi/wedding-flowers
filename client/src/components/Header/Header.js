@@ -29,6 +29,7 @@ function Header() {
         <>
             <li className="active"><Link to="/">Home</Link></li>
             <li><Link to="/catalog">Catalog</Link></li>
+            <li><Link to="/reviews">Reviews</Link></li>
 
         </>
     );

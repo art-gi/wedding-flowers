@@ -19,12 +19,13 @@ function create(data, token) {
         console.log(error)
     });
 };
-function edit(id, data) {
+function edit(id, data, token) {
     console.log(id)
     return fetch(api.items + `/${id}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',
+            'X-Authorization': token,
         },
         body: JSON.stringify({ ...data })
 

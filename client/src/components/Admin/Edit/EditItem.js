@@ -1,14 +1,23 @@
-import { useState } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
-import { items } from '../../../services/api.js';
 import itemService from '../../../services/itemService.js';
 import styles from './EditItem.module.css'
+import {AuthContext} from './../../../context/AuthContext.js'
 
 function EditItem() {
   const navigate = useNavigate();
+  const {user} = useContext(AuthContext);
   const itemId = useParams();
-  const [item, setItem] = useState(itemId);
+  const [item, setItem] = useState([]);
+
+  useEffect(() => {
+    itemService.getOne(Object.values(itemId)[0])
+      .then((data) => {
+        console.log(data)
+        setItem(data)
+      })
+  }, []);
 
   function submitHandler(e) {
     e.preventDefault();
@@ -30,11 +39,11 @@ function EditItem() {
       image,
       price
     }
-
-    itemService.edit(itemId,itemData)
-    .then(()=> {
-      navigate('/details/')
-    })
+  
+    itemService.edit(item._id, itemData, user.accessToken)
+      .then(() => {
+        navigate('/catalog')
+      })
 
 
   }
@@ -45,7 +54,7 @@ function EditItem() {
         <form method="POST" className={styles.label} onSubmit={submitHandler} >
           <div>
             <label htmlFor="title">Title</label>
-            <input type="text" name="title" defaultValue={item.title} placeholder="Giant rose decor ..." size="22" />
+            <input type="text" name="title" defaultValue={item.title} size="22" />
           </div>
           <div >
             <label htmlFor="email">Description</label>

@@ -15,7 +15,7 @@ import EditItem from './components/Admin/Edit/EditItem'
 import Catalog from './components/Shop/Catalog.js'
 import NotFound from './components/NotFound/NotFound.js'
 import Details from './components/Shop/Details/ItemDetails.js'
-import Review from './components/Reviews/Review.js';
+import Reviews from './components/Reviews/Reviews.js';
 import AddReview from './components/Reviews/AddReview.js';
 import MyOrders from './components/PrivatePages/MyOrders.js';
 import Footer from './components/Footer/Footer.js';
@@ -59,10 +59,10 @@ function App() {
             <Route path="/register" element={<Register />} />
             <Route path="/logout" element={<Logout />} />
             <Route path="/add-item" element={<AddItem />} />
-            <Route path="/edit/itemId" element={<EditItem />} />
+            <Route path="/edit/:itemId" element={<EditItem />} />
             <Route path="/details/:itemId" element={<Details />} />
             <Route path="/add-review/:itemId" element={<AddReview />} />
-            <Route path="/review" element={<Review />} />
+            <Route path="/reviews" element={<Reviews />} />
             <Route path="/my-orders" element={<MyOrders />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
