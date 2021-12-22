@@ -9,6 +9,7 @@ const [review, setReview] = useState({});
     useEffect(() => {
         reviewService.getAll()
           .then((data) => {
+              console.log(data)
             setReview(data)
           })
           .catch((error) => {

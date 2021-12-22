@@ -14,6 +14,7 @@ function create(data, token) {
         body: JSON.stringify({ ...data })
 
     }).then((res) => {
+        console.log
         return res.json();
     }).catch((error) => {
         console.log(error)
@@ -21,7 +22,7 @@ function create(data, token) {
 };
 function edit(id, data) {
     console.log(id)
-    return fetch(api.items + `/${id}`, {
+    return fetch(api.reviews + `/${id}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',
@@ -35,7 +36,7 @@ function edit(id, data) {
     });
 };
 function getOne(id) {
-    return request.get(api.items + `/${id}`);
+    return request.get(api.reviews + `/${id}`);
 }
 function remove(id, token) {
     return fetch(api.items + `/${id}`, {
