@@ -20,6 +20,10 @@ function AddItem() {
     
 
     let itemData = {title, description, quantity, image, price}
+    if (title === "", description === "", price === '')
+    {
+      return
+    };
     
     itemService.create(itemData, user.accessToken)
     .then((data) => {
