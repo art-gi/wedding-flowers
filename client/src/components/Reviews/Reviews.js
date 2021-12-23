@@ -16,7 +16,7 @@ function Reviews() {
                 console.log(error);
             })
     }, []);
-
+console.log(reviews)
     return (
         <div className="wrapper bgded">
             {<Review values={Object.values(reviews)} />};

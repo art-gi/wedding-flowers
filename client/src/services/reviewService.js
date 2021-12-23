@@ -38,7 +38,7 @@ export function getOneReview(id) {
     return request.get(api.reviews + `/${id}`);
 }
 
-function remove(id, token) {
+export function remove(id, token) {
     return fetch(api.items + `/${id}`, {
         method: 'DELETE',
         headers: {

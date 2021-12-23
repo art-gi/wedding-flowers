@@ -17,7 +17,6 @@ import NotFound from './components/NotFound/NotFound.js'
 import Details from './components/Shop/Details/ItemDetails.js'
 import Reviews from './components/Reviews/Reviews.js';
 import AddReview from './components/Reviews/AddReview.js';
-import EditReview from './components/Reviews/EditReview.js'
 import MyOrders from './components/PrivatePages/MyOrders.js';
 import Footer from './components/Footer/Footer.js';
 
@@ -63,7 +62,6 @@ function App() {
             <Route path="/edit/:itemId" element={<EditItem />} />
             <Route path="/details/:itemId" element={<Details />} />
             <Route path="/add-review/:itemId" element={<AddReview />} />
-            <Route path="/edit-review/:itemId" element={<EditReview />} />
             <Route path="/reviews" element={<Reviews />} />
             <Route path="/my-orders" element={<MyOrders />} />
             <Route path="*" element={<NotFound />} />

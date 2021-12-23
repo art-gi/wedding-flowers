@@ -10,6 +10,7 @@ function AddReview() {
     const { user } = useContext(AuthContext);
     const navigate = useNavigate();
     const itemId = useParams();
+    const id = Object.values(itemId)[0]
     console.log(itemId)
     function addReviewHandler(e) {
         e.preventDefault();
@@ -22,7 +23,8 @@ function AddReview() {
         const reviewData = {
             name,
             email,
-            review
+            review,
+            id
     
         };
         createReview(reviewData, user.accessToken)

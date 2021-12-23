@@ -17,6 +17,7 @@ function MyOrders() {
                 itemService.getOne(id)
                     .then((data) => {
                         setProduct(data);
+                        setUserOrders(product);
                         return product;
                     })
                     .catch((error) => {
@@ -31,13 +32,7 @@ function MyOrders() {
             <div className="scrollable">
                 <table>
                     {userOrders?.length > 0
-                        ? (<><thead>
-                            <tr>
-                                <th>Products</th>
-                                <th>Quantity</th>
-                                <th>Price</th>
-                            </tr>
-                        </thead>
+                        ? (<>
                             <tbody>
                                 {userOrders.map(x => <Order key={x._id} item={x} />)}
                             </tbody></>)

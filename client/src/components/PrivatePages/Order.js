@@ -1,26 +1,17 @@
 function Order({ item }) {
     
     console.log(item)
-
+    
     return (
-        <>
-            <td>
-                <tr>
-                    <td>{item.title}</td>
-                </tr>
-            </td>
-            <td>
-                <tr>
-                    <td>{item.quantity}</td>
-                </tr>
-            </td>
-            <td>
-                <tr>
-                    <td>{item.price}</td>
-                </tr>
-            </td>
-        </>
-    )
+        <div className="bgded overlay" >
+            <section className="hoc container clear">
+                <div >
+                    <p>{item.title}</p>
+                    <img  src={item.image} />
+                </div>
+            </section>
+        </div>
+    );
 
 }
 export default Order;
