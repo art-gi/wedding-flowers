@@ -42,6 +42,7 @@ function App() {
               <Route path="/register" element={<Register />} />
               <Route path="/logout" element={<Logout />} />
               <Route path="/details/:itemId" element={<Details />} />
+              <Route path="/reviews" element={<Reviews />} />
 
               <Route element={<Guard />} >
                 <Route path="/add-item" element={<AddItem />} />

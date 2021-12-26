@@ -1,11 +1,9 @@
 import { useState, useEffect, useContext } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
-import { Link } from 'react-router-dom'
+import { NavLink, useNavigate, useParams, Link } from 'react-router-dom';
 
 import styles from './ItemDetails.module.css';
 import { AuthContext } from '../../../context/AuthContext.js';
 import itemService from '../../../services/itemService.js';
-import Reviews from './../../Reviews/Reviews.js';
 
 function ItemDetails() {
     const navigate = useNavigate();
@@ -38,7 +36,8 @@ function ItemDetails() {
         <>
             <Link className="btn inverse" to={`/edit/${item._id}`} >Edit</Link>
             <Link className="btn inverse" to="#" onClick={removeHandler} >Delete</Link>
-            <Link to={`/add-review/${item._id}`} className="btn inverse" className={styles.btnReview} > / Write a review /</Link>
+            if ()
+            <NavLink to={`/add-review/${item._id}`} className="btn inverse" className={styles.btnReview} > / Write a review /</NavLink>
         </>
 
     )

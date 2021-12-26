@@ -1,6 +1,5 @@
 import { useContext } from 'react';
 
-import reviewService from '../../services/itemService.js';
 import { createReview } from '../../services/reviewService.js';
 import { AuthContext } from '../../context/AuthContext.js';
 import styles from './AddReview.module.css'
@@ -8,9 +7,9 @@ import { useNavigate, useParams } from 'react-router-dom';
 
 function AddReview() {
     const { user } = useContext(AuthContext);
+    const { itemId } = useParams();
     const navigate = useNavigate();
-    const itemId = useParams();
-    const id = Object.values(itemId)[0]
+
     function addReviewHandler(e) {
         e.preventDefault();
 
@@ -23,12 +22,10 @@ function AddReview() {
             name,
             email,
             review,
-            id
-    
         };
         createReview(reviewData, user.accessToken)
-            .then((data) => {
-                navigate('/reviews');
+            .then((review) => {
+                navigate(`/details/${itemId}`);
             }).catch((error) => {
                 console.log(error);
             })
