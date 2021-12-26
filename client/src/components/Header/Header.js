@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import { AuthContext } from '../../context/AuthContext.js';
 import ContactNavBar from './ContactNavBar.js';
-import Search from './Search.js'
+
 
 function Header() {
     const { user } = useContext(AuthContext);
@@ -17,7 +17,7 @@ function Header() {
     let userPage = (
         <>
             <li ><Link to="/add-item">Add a Listing</Link></li>
-            <li><Link to="/my-orders" title="My Orders ">My Orders</Link></li>
+            
         </>
     );
     let logout = (

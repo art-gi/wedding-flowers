@@ -14,7 +14,6 @@ function EditItem() {
   useEffect(() => {
     itemService.getOne(Object.values(itemId)[0])
       .then((data) => {
-        console.log(data)
         setItem(data)
       })
   }, []);

@@ -4,14 +4,12 @@ import * as request from './requester.js';
 function login(email, password) {
     return request.post(api.login, {email, password})
         .then(user => {
-            console.log(user)
             return user;
         })
 }
 function register(email, password) {
     return request.post(api.register, {email, password})
         .then(user => {
-            console.log(user)
             return user;
         })
 };

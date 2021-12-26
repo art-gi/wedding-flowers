@@ -11,7 +11,6 @@ function AddReview() {
     const navigate = useNavigate();
     const itemId = useParams();
     const id = Object.values(itemId)[0]
-    console.log(itemId)
     function addReviewHandler(e) {
         e.preventDefault();
 
@@ -29,7 +28,6 @@ function AddReview() {
         };
         createReview(reviewData, user.accessToken)
             .then((data) => {
-                console.log(data)
                 navigate('/reviews');
             }).catch((error) => {
                 console.log(error);

@@ -3,7 +3,6 @@ import RCard from './RCard.js';
 import styles from './Review.module.css'
 
 function Review({ values }) {
-  console.log(values[0])
   const showHeader = (
     <h3 className={styles.header} >No Reviews</h3>
   )

@@ -27,7 +27,6 @@ function AddItem() {
     
     itemService.create(itemData, user.accessToken)
     .then((data) => {
-      console.log(data)
       navigate('/catalog ');
     }).catch((error) => {
       console.log(error);

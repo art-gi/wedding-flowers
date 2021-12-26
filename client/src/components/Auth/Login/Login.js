@@ -19,12 +19,9 @@ function Login() {
 
     authService.login(email, password)
       .then((userData) => {
-        console.log(userData)
         login(userData);
         navigate('/');
-      }).catch((error) => {
-        console.log(error);
-      })
+      }).catch((error))
   }
 
   return (

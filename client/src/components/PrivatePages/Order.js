@@ -1,7 +1,5 @@
 function Order({ item }) {
     
-    console.log(item)
-    
     return (
         <div className="bgded overlay" >
             <section className="hoc container clear">

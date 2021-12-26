@@ -9,14 +9,13 @@ function Reviews() {
     useEffect(() => {
         getAllReviews()
             .then((data) => {
-                console.log(data)
                 setReviews(data)
             })
             .catch((error) => {
                 console.log(error);
             })
     }, []);
-console.log(reviews)
+    
     return (
         <div className="wrapper bgded">
             {<Review values={Object.values(reviews)} />};

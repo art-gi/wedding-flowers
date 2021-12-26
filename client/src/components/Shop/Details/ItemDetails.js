@@ -12,14 +12,10 @@ function ItemDetails() {
     const { user, productsId, productsItem } = useContext(AuthContext);
     const [item, setItem] = useState({});
     const { itemId } = useParams();
-    console.log(itemId)
-    console.log(item)
-    console.log(user)
 
     useEffect(() => {
         itemService.getOne(itemId)
             .then((data) => {
-                console.log(data)
                 setItem(data)
             })
     }, []);
@@ -31,7 +27,7 @@ function ItemDetails() {
 
     function removeHandler(e) {
         e.preventDefault();
-        console.log(itemId)
+      
         itemService.remove(itemId, user.accessToken)
             .then(() => {
                 navigate('/catalog')
@@ -49,7 +45,7 @@ function ItemDetails() {
     const userBtn = (
         <div><Link to="#" className=" btn inverse" onClick={productHandler} > Get it now </Link></div>
     )
-    console.log(itemId)
+
     return (
         <div className="bgded overlay" >
             <section className="hoc container clear">
