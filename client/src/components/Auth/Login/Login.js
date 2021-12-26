@@ -6,7 +6,8 @@ import styles from './Login.module.css';
 import authService from '../../../services/authService.js';
 
 function Login() {
-  const {login} = useContext(AuthContext);
+  const { login } = useContext(AuthContext);
+
   const navigate = useNavigate()
 
   function loginHandler(e) {
@@ -19,9 +20,11 @@ function Login() {
 
     authService.login(email, password)
       .then((userData) => {
-        login(userData);
+        login(userData)
         navigate('/');
-      }).catch((error))
+      }).catch((error) => {
+        console.log(error);
+      })
   }
 
   return (
