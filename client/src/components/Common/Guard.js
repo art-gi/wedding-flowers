@@ -4,12 +4,12 @@ import { Navigate, Outlet } from "react-router-dom";
 import { AuthContext } from './../../context/AuthContext.js';
 
 function Guard() {
-    const { isAuthentificated } = useContext(AuthContext);
-    
+    const { user, isAuthentificated } = useContext(AuthContext);
+
     return (
-       isAuthentificated
-       ? <Outlet />
-       : < Navigate to = "/login" />
+        isAuthentificated(user)
+            ? <Outlet />
+            : < Navigate to="/login" />
     )
 
 }

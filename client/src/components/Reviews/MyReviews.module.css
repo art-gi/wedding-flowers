@@ -1,13 +1,7 @@
 .container {
   position:relative;
-  max-width: 80%;
-  left: 15%;
-
 }
 .header {
   text-align: center;
   color: darkorange;
-}
-.content {
-  position: relative;
 }

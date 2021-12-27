@@ -22,6 +22,7 @@ function AddReview() {
             name,
             email,
             review,
+            itemId
         };
         createReview(reviewData, user.accessToken)
             .then((review) => {
@@ -40,11 +41,11 @@ function AddReview() {
                         <input type="text" name="name" id="name" size="22" required />
                     </div>
                     <div >
-                        <label for="email">Mail <span>*</span></label>
+                        <label for="email">Email<span>*</span></label>
                         <input type="email" name="email" id="email" size="22" required />
                     </div>
                     <div className="block clear">
-                        <label for="review">Your Review</label>
+                        <label for="review">Content</label>
                         <textarea name="review" id="review" cols="25" rows="10"></textarea>
                     </div>
                     <div>

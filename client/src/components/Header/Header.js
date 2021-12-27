@@ -17,6 +17,7 @@ function Header() {
     let userPage = (
         <>
             <li ><Link to="/add-item">Add a Listing</Link></li>
+            <li><Link to="/my-reviews">My Reviews</Link></li>
             
         </>
     );
@@ -29,8 +30,6 @@ function Header() {
         <>
             <li className="active"><Link to="/">Home</Link></li>
             <li><Link to="/catalog">Catalog</Link></li>
-            <li><Link to="/reviews">Reviews</Link></li>
-
         </>
     );
     return (

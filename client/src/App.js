@@ -16,10 +16,11 @@ import EditItem from './components/Admin/Edit/EditItem'
 import Catalog from './components/Shop/Catalog.js'
 import NotFound from './components/NotFound/NotFound.js'
 import Details from './components/Shop/Details/ItemDetails.js'
-import Reviews from './components/Reviews/Reviews.js';
+import MyReviews from './components/Reviews/MyReviews.js';
 import AddReview from './components/Reviews/AddReview.js';
-
+import EditReview from './components/Reviews/EditReview.js';
 import Footer from './components/Footer/Footer.js';
+
 
 function App() {
   const [productsId, setProductsId] = useState([]);
@@ -31,31 +32,33 @@ function App() {
 
   return (
     <AuthProvider>
-      
-        <div>
-          <Header />
-          <main>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/Catalog" element={<Catalog />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/register" element={<Register />} />
-              <Route path="/logout" element={<Logout />} />
-              <Route path="/details/:itemId" element={<Details />} />
-              <Route path="/reviews" element={<Reviews />} />
 
-              <Route element={<Guard />} >
-                <Route path="/add-item" element={<AddItem />} />
-                <Route path="/edit/:itemId" element={<EditItem />} />
-                <Route path="/add-review/:itemId" element={<AddReview />} />
-              </Route>
+      <div>
+        <Header />
+        <main>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/Catalog" element={<Catalog />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/logout" element={<Logout />} />
+            <Route path="/details/:itemId" element={<Details />} />
 
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </main>
-          <Footer />
-        </div>
-    
+
+            <Route element={<Guard />} >
+              <Route path="/add-item" element={<AddItem />} />
+              <Route path="/edit/:itemId" element={<EditItem />} />
+              <Route path="/add-review/:itemId" element={<AddReview />} />
+              <Route path="/my-reviews" element={<MyReviews />} />
+              <Route path="/edit-review/:itemId" element={<EditReview />} />
+            </Route>
+
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
+
     </AuthProvider>
   );
 };
