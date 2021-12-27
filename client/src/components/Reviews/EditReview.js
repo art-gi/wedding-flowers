@@ -1,6 +1,6 @@
 
 import { useState, useEffect, useContext } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { Navigate, useNavigate, useParams } from 'react-router-dom';
 
 import styles from './EditReview.module.css'
 import { AuthContext } from './../../context/AuthContext.js'
@@ -37,7 +37,7 @@ console.log(itemId)
 
         editReview(itemId, reviewData, user.accessToken)
             .then(() => {
-                navigate('/my-reviews')
+                navigate('/my-reviews');
             })
 
 

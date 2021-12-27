@@ -4,6 +4,7 @@ import { NavLink, useNavigate, useParams, Link } from 'react-router-dom';
 import styles from './ItemDetails.module.css';
 import { AuthContext } from '../../../context/AuthContext.js';
 import itemService from '../../../services/itemService.js';
+import Review from '../../Reviews/Review.js';
 
 function ItemDetails() {
     const navigate = useNavigate();
@@ -25,10 +26,10 @@ function ItemDetails() {
 
     function removeHandler(e) {
         e.preventDefault();
-      
+
         itemService.remove(itemId, user.accessToken)
             .then(() => {
-                navigate('/catalog')
+                navigate('/details')
             })
     }
 
@@ -36,10 +37,10 @@ function ItemDetails() {
         <>
             <Link className="btn inverse" to={`/edit/${item._id}`} >Edit</Link>
             <Link className="btn inverse" to="#" onClick={removeHandler} >Delete</Link>
-            if ()
-            <NavLink to={`/add-review/${item._id}`} className="btn inverse" className={styles.btnReview} > / Write a review /</NavLink>
         </>
-
+    )
+    const reviewBtn = (
+        <NavLink to={`/add-review/${item._id}`} className="btn inverse" className={styles.btnReview} > / Write a review /</NavLink>
     )
     const userBtn = (
         <div><Link to="#" className=" btn inverse" onClick={productHandler} > Get it now </Link></div>
@@ -56,8 +57,9 @@ function ItemDetails() {
                         <div >
                             {item?._ownerId === user._id
                                 ? ownerBtn
-                                : ''
+                                : reviewBtn
                             }
+                            <Review />
                         </div>
                     </ul>
                 </article>

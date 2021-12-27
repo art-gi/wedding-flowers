@@ -27,18 +27,18 @@ function MyReviews() {
 
     return (
         <div className="wrapper bgded">
-            <div id="comments">
-                {reviews?.lengts <= 0
-                    ? showHeader
-                    : (<span className={styles.container}>
-                        {
-                        reviews.map(x => <ReviewCard key={x._id} info={x} />)
-                        }
-                    </span>
-                    )
-                }
-            </div>
+        <div id="comments">
+            {reviews?.lengts <= 0
+                ? showHeader
+                : (<span className={styles.container}>
+                    {
+                    reviews.map(x => <ReviewCard key={x._id} info={x} />)
+                    }
+                </span>
+                )
+            }
         </div>
+    </div>
     );
 }
 export default MyReviews;
