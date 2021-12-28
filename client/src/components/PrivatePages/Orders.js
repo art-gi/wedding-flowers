@@ -1,7 +1,18 @@
 
+import { useContext } from 'react';
+import { AuthContext } from '../../context/AuthContext.js';
 import styles from './Orders.module.css';
 
 function Orders({ item }) {
+    const { user } = useContext(AuthContext);
+    /* const newData = {}
+
+    itemService.partialEdit(item._id, user.accessToken, newData)
+        .then()
+        .catch((error) => {
+            console.log(error);
+        })
+ */
     let price = Number(item.price).toFixed(2);
 
     return (

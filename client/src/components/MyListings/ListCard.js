@@ -8,9 +8,9 @@ function ItemCard({ item }) {
   const price = Number(item.price).toFixed(2);
   const { productsItem } = useContext(AuthContext);
 
-  function productHandler() {
+  /* function productHandler() {
     productsItem(item._id);
-  }
+  } */
 
   return (
     <div className={styles.div}>
@@ -19,7 +19,7 @@ function ItemCard({ item }) {
           <p className={styles.title}>{item.title}</p>
           <p>Price: $ {price}</p>
           <Link to={`/details/${item._id}`} className="btn inverse" className={styles.btnDetails} > Details </Link>
-          </figcaption>
+        </figcaption>
       </figure>
     </div>
   )

@@ -5,7 +5,6 @@ import itemService from '../../services/itemService.js';
 
 import { AuthContext } from './../../context/AuthContext.js';
 import Orders from './Orders.js';
-import styles from './MyOrders.module.css'
 
 function MyOrders() {
     const { productsId } = useContext(AuthContext);
@@ -17,7 +16,6 @@ function MyOrders() {
                 itemService.getAll()
                     .then((result) => {
                         let myOrders = result.filter(x => productsId.includes(x._id));
-                        console.log(productsId)
                         setProduct(myOrders);
                     })
                     .catch((error) => {
@@ -26,11 +24,10 @@ function MyOrders() {
             });
         }
     }, [])
-    console.log(products)
+
     return (
         <>
             <div className="scrollable">
-            <div className={styles.container}>
                 <table>
                     {products?.length > 0
                         ? (<>
@@ -51,8 +48,7 @@ function MyOrders() {
                     }
 
                 </table>
-                </div>
-            </div >
+            </div>
         </>
     );
 }

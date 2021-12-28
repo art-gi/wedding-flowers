@@ -1,8 +1,9 @@
 import * as api from './api.js';
 import * as request from './requester.js';
+
 function getAll() {
     return request.get(api.items);
-}
+};
 
 function create(data, token) {
     return fetch(api.items, {
@@ -37,7 +38,25 @@ function edit(id, data, token) {
 };
 function getOne(id) {
     return request.get(api.items + `/${id}`);
-}
+    
+};
+
+function partialEdit(id, token, data) {
+    return fetch(api.items + `/${id}`, {
+        method: 'PATCH',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-Authorization': token,
+        },
+        body: JSON.stringify({ ...data })
+
+    }).then((res) => {
+        return res.json();
+    }).catch((error) => {
+        console.log(error)
+    });
+};
+
 function remove(id, token) {
     return fetch(api.items + `/${id}`, {
         method: 'DELETE',
@@ -49,9 +68,10 @@ function remove(id, token) {
     }).catch((error) => {
         console.log(error)
     }); 
-}
+};
 
 export default {
+    partialEdit,
     create,
     getAll,
     getOne,

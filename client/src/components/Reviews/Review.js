@@ -9,15 +9,12 @@ import styles from './Review.module.css';
 
 function Review() {
   const {itemId} = useParams();
-  const { user } = useContext(AuthContext);
     const [reviews, setReviews] = useState([]);
 console.log(itemId)
     useEffect(() => {
         getAllReviews()
             .then((result) => {
-              console.log(result)
                 let currentItemReviews = result.filter(x => x._itemId == itemId);
-                console.log(currentItemReviews)
                 setReviews(currentItemReviews)
             })
             .catch((error) => {

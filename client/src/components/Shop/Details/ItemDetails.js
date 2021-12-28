@@ -8,7 +8,7 @@ import Review from '../../Reviews/Review.js';
 
 function ItemDetails() {
     const navigate = useNavigate();
-    const { user, productsId, productsItem } = useContext(AuthContext);
+    const { user, productsItem } = useContext(AuthContext);
     const [item, setItem] = useState({});
     const { itemId } = useParams();
 
@@ -30,6 +30,8 @@ function ItemDetails() {
         itemService.remove(itemId, user.accessToken)
             .then(() => {
                 navigate('/catalog')
+            }).catch((error) => {
+                console.log(error);
             })
     }
 

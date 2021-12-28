@@ -6,13 +6,36 @@ import styles from './EditReview.module.css'
 import { AuthContext } from './../../context/AuthContext.js'
 import { getOneReview, editReview } from './../../services/reviewService.js';
 
+const notes = {
+    content: ((content, setErrors) => content.length > 300 ? setErrors((oldState) => [...oldState, 'Title must be up to 70 characters']) : null),
+    email: ((email, setErrors) => email.match(/[\S]+@[a-zA-z]+\.[a-zA-z]+/g) ? null : setErrors((oldState) => [...oldState, 'Please enter valid email!']))
+
+}
 
 function EditReview() {
     const navigate = useNavigate();
     const { user } = useContext(AuthContext);
     const {itemId} = useParams();
     const [review, setReview] = useState([]);
-console.log(review._itemId)
+    const [errors, setErrors] = useState([]);
+    function inputsHandler(e) {
+
+        let name = e.target.name;
+        let value = e.target.value;
+
+        if (notes.hasOwnProperty(name)) {
+            notes[name](value, setErrors);
+
+        }
+
+        if (errors.length > 0) {
+            console.log(errors)
+            alert(errors.join('\n'));
+            setErrors([]);
+            return;
+        }
+    }
+
     useEffect(() => {
         getOneReview(itemId)
             .then((data) => {
@@ -40,6 +63,10 @@ console.log(review._itemId)
             _itemId
             
         }
+        if (Object.values(reviewData).some(x => x === '')) {
+            alert('All filds must be fill!')
+            return;
+        }
 
         editReview(itemId, reviewData, user.accessToken)
             .then(() => {
@@ -52,14 +79,14 @@ console.log(review._itemId)
         <section className={styles.container}>
             <div>
                 <h2 >Edit Review</h2>
-                <form method="POST" className={styles.label} onSubmit={submitHandler} >
+                <form method="POST" className={styles.label} onSubmit={submitHandler} onBlur={inputsHandler} >
                     <div>
                         <label htmlFor="name">Name</label>
                         <input type="text" name="name" defaultValue={review.name} placeholder="Emy" size="22" />
                     </div>
                     <div >
                         <label htmlFor="email">Email</label>
-                        <input name="email" defaultValue={review.email} placeholder="emy@abv.bg" size="22" />
+                        <input type="email" name="email" defaultValue={review.email} placeholder="emy@abv.bg" size="22" />
                     </div>
                     <div >
                         <label htmlFor="content">Content</label>

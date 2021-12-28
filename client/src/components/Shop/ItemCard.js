@@ -9,8 +9,6 @@ function ItemCard({ item }) {
   const navigate = useNavigate();
   const price = Number(item.price).toFixed(2);
   const { user, addId, isAuthentificated } = useContext(AuthContext);
-  console.log(item)
-  console.log(user)
 
   function productHandler(e) {
     e.preventDefault();

@@ -1,8 +1,7 @@
 
 import { Routes, Route } from 'react-router-dom';
-import { useState } from 'react';
 
-import { AuthProvider, AuthContext } from './context/AuthContext.js';
+import { AuthProvider } from './context/AuthContext.js';
 
 import './App.css';
 import Guard from './components/Common/Guard.js'

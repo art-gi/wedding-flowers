@@ -5,11 +5,41 @@ import itemService from '../../../services/itemService.js';
 import styles from './EditItem.module.css'
 import {AuthContext} from './../../../context/AuthContext.js'
 
+const notes = {
+  title: ((title, setErrors) => title.length > 70 ? setErrors((oldState) => [...oldState, 'Title must be up to 70 characters']) : null),
+  quantity: (quantity, setErrors) => {
+    if ((Number(quantity) < 1) || (Number(quantity) > 10)) {
+      setErrors((oldState) => [...oldState, 'Quantity must be number from 1 to 10!']);
+    }
+  },
+  image: ((image, setErrors) => image.match(/^https*:\/\/.+/g) ? null : setErrors((oldState) => [...oldState, 'Enter valid url!'])),
+  price: ((price, setErrors) => !(Number(price)) ? null : setErrors((oldState) => [...oldState, 'Price must be number!']))
+
+}
+
 function EditItem() {
   const navigate = useNavigate();
   const {user} = useContext(AuthContext);
   const itemId = useParams();
   const [item, setItem] = useState([]);
+  const [errors, setErrors] = useState([]);
+
+  function inputsHandler(e) {
+    let name = e.target.name;
+    let value = e.target.value;
+  
+    if (notes.hasOwnProperty(name)) {
+      notes[name](value, setErrors);
+  
+    }
+  
+    if (errors.length > 0) {
+      console.log(errors)
+      alert(errors.join('\n'));
+      setErrors([]);
+      return;
+    }
+  }  
 
   useEffect(() => {
     itemService.getOne(Object.values(itemId)[0])
@@ -26,7 +56,7 @@ function EditItem() {
     let title = data.get('title');
     let image = data.get('image');
     let description = data.get('description');
-    let category = data.get('category');
+    let quantity = data.get('quantity');
     let price = data.get('price');
 
     price = Number(price);
@@ -34,15 +64,20 @@ function EditItem() {
     const itemData = {
       title,
       description,
-      category,
+      quantity,
       image,
       price
     }
-  
+    if (Object.values(itemData).some(x => x === '')) {
+      alert('All filds must be fill!')
+      return;
+    }
     itemService.edit(item._id, itemData, user.accessToken)
       .then(() => {
         navigate('/catalog')
-      })
+      }).catch((error) => {
+        console.log(error);
+      });
 
 
   }
@@ -50,7 +85,7 @@ function EditItem() {
     <section className={styles.container}>
       <div>
         <h2 >Edit Item</h2>
-        <form method="POST" className={styles.label} onSubmit={submitHandler} >
+        <form method="POST" className={styles.label} onSubmit={submitHandler} onBlur={inputsHandler} >
           <div>
             <label htmlFor="title">Title</label>
             <input type="text" name="title" defaultValue={item.title} size="22" />
@@ -60,8 +95,8 @@ function EditItem() {
             <input name="description" defaultValue={item.description} placeholder="Colors: red and white, Size: ..." size="22" />
           </div>
           <div >
-            <label htmlFor="category">Type</label>
-            <input type="text" name="category" defaultValue={item.category} placeholder="paper flowers" size="22" />
+            <label htmlFor="quantity">Type</label>
+            <input type="text" name="quantity" defaultValue={item.quantity} placeholder="1" size="22" />
           </div>
           <div >
             <label htmlFor="imageUrl">Image Url</label>
