@@ -4,21 +4,21 @@ import { useContext } from 'react';
 import itemService from '../../services/itemService.js';
 
 import { AuthContext } from './../../context/AuthContext.js';
-import Order from './Order.js';
+import Orders from './Orders.js';
+import styles from './MyOrders.module.css'
 
 function MyOrders() {
-    const { user, productsId } = useContext(AuthContext);
-    const [product, setProduct] = useState({});
-    const [userOrders, setUserOrders] = useState([])
+    const { productsId } = useContext(AuthContext);
+    const [products, setProduct] = useState({});
 
     useEffect(() => {
         if (productsId.length > 0) {
             productsId.forEach(id => {
-                itemService.getOne(id)
-                    .then((data) => {
-                        setProduct(data);
-                        setUserOrders(product);
-                        return product;
+                itemService.getAll()
+                    .then((result) => {
+                        let myOrders = result.filter(x => productsId.includes(x._id));
+                        console.log(productsId)
+                        setProduct(myOrders);
                     })
                     .catch((error) => {
                         console.log(error);
@@ -26,16 +26,24 @@ function MyOrders() {
             });
         }
     }, [])
-    
+    console.log(products)
     return (
         <>
             <div className="scrollable">
+            <div className={styles.container}>
                 <table>
-                    {userOrders?.length > 0
+                    {products?.length > 0
                         ? (<>
+                            <thead >
+                                <tr>
+                                    <th>Products</th>
+                                    <th>Price</th>
+                                </tr>
+                            </thead>
                             <tbody>
-                                {userOrders.map(x => <Order key={x._id} item={x} />)}
-                            </tbody></>)
+                                {products.map(x => <Orders key={x._id} item={x} />)}
+                            </tbody>
+                        </>)
                         : (<tr>
                             <th><h2>No Orders</h2></th>
                         </tr>
@@ -43,6 +51,7 @@ function MyOrders() {
                     }
 
                 </table>
+                </div>
             </div >
         </>
     );

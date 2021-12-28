@@ -15,14 +15,11 @@ function ItemCard({ item }) {
   return (
     <div className={styles.div}>
       <figure><img src={item.image} alt="" />
-        <figcaption>
-          <h3 className="heading">{item.title}</h3>
+        <figcaption className={styles.content}>
+          <p className={styles.title}>{item.title}</p>
           <p>Price: $ {price}</p>
-        </figcaption>
-
-        <div className={styles.buttons}>
-          <Link to={`/details/${item._id}`} className="btn inverse" className={styles.btnDetails} > DETAILS </Link>
-        </div>
+          <Link to={`/details/${item._id}`} className="btn inverse" className={styles.btnDetails} > Details </Link>
+          </figcaption>
       </figure>
     </div>
   )

@@ -14,10 +14,11 @@ function Header() {
             <li><Link to="/register" title="Sign Up">Register</Link></li>
         </>
     );
-    let userPage = (
+    let userBtn = (
         <>
              <li><Link to="/my-listings">My Listings</Link></li>
             <li><Link to="/my-reviews">My Reviews</Link></li>
+            <li><Link to="/my-orders">My Orders</Link></li>
             <li><Link to="/add-item">Add a listing</Link></li>
         </>
     );
@@ -57,7 +58,7 @@ function Header() {
                         {allUsers}
 
                         {user?.email
-                            ? userPage
+                            ? userBtn
                             : ''}
 
                     </nav>
