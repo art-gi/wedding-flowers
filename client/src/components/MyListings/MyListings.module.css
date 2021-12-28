@@ -1,0 +1,16 @@
+.main {
+  max-width: 1200px;
+}
+.h4 {
+  position: relative;
+  top: 10%;
+  width: 100%;
+  text-align: center;
+}
+.p {
+  position: relative;
+  top: 30%;
+  size: 24px;
+  left: 45%;
+}
+

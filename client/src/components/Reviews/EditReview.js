@@ -1,17 +1,18 @@
 
 import { useState, useEffect, useContext } from 'react';
-import { Navigate, useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 import styles from './EditReview.module.css'
 import { AuthContext } from './../../context/AuthContext.js'
 import { getOneReview, editReview } from './../../services/reviewService.js';
+
 
 function EditReview() {
     const navigate = useNavigate();
     const { user } = useContext(AuthContext);
     const {itemId} = useParams();
     const [review, setReview] = useState([]);
-console.log(itemId)
+console.log(review._itemId)
     useEffect(() => {
         getOneReview(itemId)
             .then((data) => {
@@ -24,15 +25,20 @@ console.log(itemId)
 
         const data = new FormData(e.currentTarget);
 
-        let name = data.get('name');
-        let review = data.get('review');
-        let email = data.get('email');
+        const name = data.get('name');
+        const review = data.get('review');
+        const email = data.get('email');
+        const _ownerId = review._ownerId;
+        const _itemId = review._itemId;
+    
 
        const reviewData = {
+            _ownerId,
             name,
             email,
             review,
-            itemId
+            _itemId
+            
         }
 
         editReview(itemId, reviewData, user.accessToken)

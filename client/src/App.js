@@ -20,6 +20,7 @@ import MyReviews from './components/Reviews/MyReviews.js';
 import AddReview from './components/Reviews/AddReview.js';
 import EditReview from './components/Reviews/EditReview.js';
 import Footer from './components/Footer/Footer.js';
+import MyListings from './components/MyListings/MyListings.js';
 
 
 function App() {
@@ -48,6 +49,7 @@ function App() {
             <Route element={<Guard />} >
               <Route path="/add-item" element={<AddItem />} />
               <Route path="/edit/:itemId" element={<EditItem />} />
+              <Route path="/my-listings" element={<MyListings />} />
               <Route path="/add-review/:itemId" element={<AddReview />} />
               <Route path="/my-reviews" element={<MyReviews />} />
               <Route path="/edit-review/:itemId" element={<EditReview />} />

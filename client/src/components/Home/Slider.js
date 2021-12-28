@@ -11,7 +11,6 @@ function Slider() {
                     <div>
                         <ul className="nospace inline pushright">
                             <li><Link className="btn" to="/catalog">Catalog</Link></li>
-                            <li><Link className="btn inverse" to="/add-item">Add a listing</Link></li>
                         </ul>
                     </div>
                 </article>

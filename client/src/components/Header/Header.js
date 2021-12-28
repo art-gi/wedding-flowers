@@ -16,9 +16,9 @@ function Header() {
     );
     let userPage = (
         <>
-            <li ><Link to="/add-item">Add a Listing</Link></li>
+             <li><Link to="/my-listings">My Listings</Link></li>
             <li><Link to="/my-reviews">My Reviews</Link></li>
-            
+            <li><Link to="/add-item">Add a listing</Link></li>
         </>
     );
     let logout = (
@@ -28,7 +28,7 @@ function Header() {
     );
     let allUsers = (
         <>
-            <li className="active"><Link to="/">Home</Link></li>
+           <li className="active"><Link to="/">Home</Link></li>
             <li><Link to="/catalog">Catalog</Link></li>
         </>
     );

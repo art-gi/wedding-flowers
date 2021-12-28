@@ -17,12 +17,13 @@ function AddReview() {
         const name = data.get('name');
         const email = data.get('email');
         const review = data.get('review');
+        const _itemId = itemId;
 
         const reviewData = {
             name,
             email,
             review,
-            itemId
+            _itemId
         };
         createReview(reviewData, user.accessToken)
             .then((review) => {

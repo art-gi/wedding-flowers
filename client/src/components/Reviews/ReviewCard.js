@@ -30,7 +30,7 @@ function ReviewCard({ info }) {
                 </header>
                 <span>
                     <Link className="btn inverse" to={`/edit-review/${info._id}`} >Edit</Link>
-                    <Link className="btn inverse" to="#"  >Delete</Link>
+                    <Link className="btn inverse" to="#"  onClick={removeHandler}>Delete</Link>
                 </span>
             </article>
         </li>

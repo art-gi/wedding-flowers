@@ -29,7 +29,7 @@ function ItemDetails() {
 
         itemService.remove(itemId, user.accessToken)
             .then(() => {
-                navigate('/details')
+                navigate('/catalog')
             })
     }
 
