@@ -21,15 +21,10 @@ import AddReview from './components/Reviews/AddReview.js';
 import EditReview from './components/Reviews/EditReview.js';
 import Footer from './components/Footer/Footer.js';
 import MyListings from './components/MyListings/MyListings.js';
+import MyOrders from './components/PrivatePages/MyOrders.js';
 
 
 function App() {
-  const [productsId, setProductsId] = useState([]);
-
-  const productsItem = (itemId) => {
-    setProductsId((oldState) => [...oldState, itemId]);
-
-  };
 
   return (
     <AuthProvider>
@@ -45,7 +40,6 @@ function App() {
             <Route path="/logout" element={<Logout />} />
             <Route path="/details/:itemId" element={<Details />} />
 
-
             <Route element={<Guard />} >
               <Route path="/add-item" element={<AddItem />} />
               <Route path="/edit/:itemId" element={<EditItem />} />
@@ -53,6 +47,8 @@ function App() {
               <Route path="/add-review/:itemId" element={<AddReview />} />
               <Route path="/my-reviews" element={<MyReviews />} />
               <Route path="/edit-review/:itemId" element={<EditReview />} />
+              <Route path="/my-orders" element={<MyOrders />} />
+
             </Route>
 
             <Route path="*" element={<NotFound />} />
