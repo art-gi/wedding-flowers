@@ -20,7 +20,7 @@ function ItemDetails() {
     }, []);
 
     function productHandler() {
-        console.log(productsItem(item._id));
+        productsItem(item._id);
 
     }
 

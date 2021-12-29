@@ -10,6 +10,10 @@ function MyReviews() {
     const { user } = useContext(AuthContext);
     const [reviews, setReviews] = useState([]);
 
+    const show = (
+        <h3 className={styles.header} >No Reviews</h3>
+    )
+
     useEffect(() => {
         getAllReviews()
             .then((result) => {
@@ -21,24 +25,22 @@ function MyReviews() {
             })
     }, []);
 
-    const showHeader = (
-        <h3 className={styles.header} >No Reviews</h3>
-    )
-
     return (
         <div className="wrapper bgded">
-        <div id="comments">
+
             {reviews?.lengts <= 0
-                ? showHeader
-                : (<span className={styles.container}>
-                    {
-                    reviews.map(x => <ReviewCard key={x._id} info={x} />)
-                    }
-                </span>
+                ? show
+                : (
+                    <div id="comments">
+                        <span className={styles.container}>
+                            {
+                                reviews.map(x => <ReviewCard key={x._id} info={x} />)
+                            }
+                        </span>
+                    </div>
                 )
             }
         </div>
-    </div>
     );
 }
 export default MyReviews;

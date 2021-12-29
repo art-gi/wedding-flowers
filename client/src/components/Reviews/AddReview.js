@@ -27,7 +27,6 @@ function AddReview() {
         }
 
         if (errors.length > 0) {
-            console.log(errors)
             alert(errors.join('\n'));
             setErrors([]);
             return;

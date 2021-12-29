@@ -10,14 +10,6 @@ function ReviewCard({ info }) {
     const navigate = useNavigate();
     const { user } = useContext(AuthContext);
 
-    function removeHandler(e) {
-        e.preventDefault();
-          remove(info._id, user.accessToken)
-            .then(() => {
-              navigate('/my-reviews')
-            })
-    }
-
     return (
         <ul className="nospace"  >
         <li className={styles.content}>
@@ -30,7 +22,7 @@ function ReviewCard({ info }) {
                 </header>
                 <span>
                     <Link className="btn inverse" to={`/edit-review/${info._id}`} >Edit</Link>
-                    <Link className="btn inverse" to="#"  onClick={removeHandler}>Delete</Link>
+                    <Link className="btn inverse" to={`/delete-review/${info._id}`}>Delete</Link>
                 </span>
             </article>
         </li>
