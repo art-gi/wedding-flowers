@@ -8,7 +8,7 @@ import Review from '../../Reviews/Review.js';
 
 function ItemDetails() {
     const navigate = useNavigate();
-    const { user, productsItem } = useContext(AuthContext);
+    const { user, productsItem, productsId } = useContext(AuthContext);
     const [item, setItem] = useState({});
     const { itemId } = useParams();
 
@@ -59,7 +59,11 @@ function ItemDetails() {
                         <div >
                             {item?._ownerId === user._id
                                 ? ownerBtn
-                                : reviewBtn
+                                : ''
+                            }
+                            {productsId?.includes(item._id)
+                                ? reviewBtn
+                                : ''
                             }
                             <Review />
                         </div>

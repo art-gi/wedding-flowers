@@ -21,7 +21,18 @@ It correctly bundles React in production mode and optimizes the build for the be
 
 See the section about [deployment](https://github.com/art-gi/wedding-flowers.git) for more information.
 
-#### Licens
+#### Permissions
+Public Part
+Guests without registration can access the Catalog and Details
+
+Private Part
+Guests with registration can add items, add a product to My Orders
+
+Owners can edit them, delete them, add products to My Orders only from other users' items.
+
+Users who have purchased a product can write a review.
+
+##### Licens
 Free licens
 practice server softUni 
 https://github.com/softuni-practice-server/softuni-practice-server.git
